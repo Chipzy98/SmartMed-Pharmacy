@@ -155,184 +155,208 @@ namespace SmartMedPharmacy.UI
             this.btnRegister = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
-
+            // 
             // lblTitle
+            // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold);
-            this.lblTitle.Location = new System.Drawing.Point(180, 20);
+            this.lblTitle.Location = new System.Drawing.Point(120, 18);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(190, 26);
+            this.lblTitle.Size = new System.Drawing.Size(271, 29);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Customer Registration";
-
+            // 
             // lblFirstName
+            // 
             this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Location = new System.Drawing.Point(30, 70);
+            this.lblFirstName.Location = new System.Drawing.Point(34, 75);
             this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(70, 15);
+            this.lblFirstName.Size = new System.Drawing.Size(75, 16);
             this.lblFirstName.TabIndex = 1;
             this.lblFirstName.Text = "First Name:";
-
+            // 
             // txtFirstName
-            this.txtFirstName.Location = new System.Drawing.Point(120, 70);
+            // 
+            this.txtFirstName.Location = new System.Drawing.Point(137, 75);
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(250, 20);
+            this.txtFirstName.Size = new System.Drawing.Size(285, 22);
             this.txtFirstName.TabIndex = 2;
-
+            // 
             // lblLastName
+            // 
             this.lblLastName.AutoSize = true;
-            this.lblLastName.Location = new System.Drawing.Point(30, 110);
+            this.lblLastName.Location = new System.Drawing.Point(34, 117);
             this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(70, 15);
+            this.lblLastName.Size = new System.Drawing.Size(75, 16);
             this.lblLastName.TabIndex = 3;
             this.lblLastName.Text = "Last Name:";
-
+            // 
             // txtLastName
-            this.txtLastName.Location = new System.Drawing.Point(120, 110);
+            // 
+            this.txtLastName.Location = new System.Drawing.Point(137, 117);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(250, 20);
+            this.txtLastName.Size = new System.Drawing.Size(285, 22);
             this.txtLastName.TabIndex = 4;
-
+            // 
             // lblEmail
+            // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(30, 150);
+            this.lblEmail.Location = new System.Drawing.Point(34, 160);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(45, 15);
+            this.lblEmail.Size = new System.Drawing.Size(44, 16);
             this.lblEmail.TabIndex = 5;
             this.lblEmail.Text = "Email:";
-
+            // 
             // txtEmail
-            this.txtEmail.Location = new System.Drawing.Point(120, 150);
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(137, 160);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(250, 20);
+            this.txtEmail.Size = new System.Drawing.Size(285, 22);
             this.txtEmail.TabIndex = 6;
-
+            // 
             // lblPhone
+            // 
             this.lblPhone.AutoSize = true;
-            this.lblPhone.Location = new System.Drawing.Point(30, 190);
+            this.lblPhone.Location = new System.Drawing.Point(34, 203);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(50, 15);
+            this.lblPhone.Size = new System.Drawing.Size(49, 16);
             this.lblPhone.TabIndex = 7;
             this.lblPhone.Text = "Phone:";
-
+            // 
             // txtPhone
-            this.txtPhone.Location = new System.Drawing.Point(120, 190);
+            // 
+            this.txtPhone.Location = new System.Drawing.Point(137, 203);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(250, 20);
+            this.txtPhone.Size = new System.Drawing.Size(285, 22);
             this.txtPhone.TabIndex = 8;
-
+            // 
             // lblAddress
+            // 
             this.lblAddress.AutoSize = true;
-            this.lblAddress.Location = new System.Drawing.Point(30, 230);
+            this.lblAddress.Location = new System.Drawing.Point(34, 245);
             this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(60, 15);
+            this.lblAddress.Size = new System.Drawing.Size(61, 16);
             this.lblAddress.TabIndex = 9;
             this.lblAddress.Text = "Address:";
-
+            // 
             // txtAddress
-            this.txtAddress.Location = new System.Drawing.Point(120, 230);
+            // 
+            this.txtAddress.Location = new System.Drawing.Point(137, 245);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(250, 20);
+            this.txtAddress.Size = new System.Drawing.Size(285, 22);
             this.txtAddress.TabIndex = 10;
-
+            // 
             // lblCity
+            // 
             this.lblCity.AutoSize = true;
-            this.lblCity.Location = new System.Drawing.Point(30, 270);
+            this.lblCity.Location = new System.Drawing.Point(34, 288);
             this.lblCity.Name = "lblCity";
-            this.lblCity.Size = new System.Drawing.Size(35, 15);
+            this.lblCity.Size = new System.Drawing.Size(32, 16);
             this.lblCity.TabIndex = 11;
             this.lblCity.Text = "City:";
-
+            // 
             // txtCity
-            this.txtCity.Location = new System.Drawing.Point(120, 270);
+            // 
+            this.txtCity.Location = new System.Drawing.Point(137, 288);
             this.txtCity.Name = "txtCity";
-            this.txtCity.Size = new System.Drawing.Size(250, 20);
+            this.txtCity.Size = new System.Drawing.Size(285, 22);
             this.txtCity.TabIndex = 12;
-
-            // lblDateOfBirth
-            this.lblDateOfBirth.AutoSize = true;
-            this.lblDateOfBirth.Location = new System.Drawing.Point(30, 310);
-            this.lblDateOfBirth.Name = "lblDateOfBirth";
-            this.lblDateOfBirth.Size = new System.Drawing.Size(82, 15);
-            this.lblDateOfBirth.TabIndex = 13;
-            this.lblDateOfBirth.Text = "Date of Birth:";
-
-            // dtpDateOfBirth
-            this.dtpDateOfBirth.Location = new System.Drawing.Point(120, 310);
-            this.dtpDateOfBirth.Name = "dtpDateOfBirth";
-            this.dtpDateOfBirth.Size = new System.Drawing.Size(250, 20);
-            this.dtpDateOfBirth.TabIndex = 14;
-
+            // 
             // lblUsername
+            // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(30, 350);
+            this.lblUsername.Location = new System.Drawing.Point(34, 373);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(68, 15);
+            this.lblUsername.Size = new System.Drawing.Size(73, 16);
             this.lblUsername.TabIndex = 15;
             this.lblUsername.Text = "Username:";
-
+            // 
             // txtUsername
-            this.txtUsername.Location = new System.Drawing.Point(120, 350);
+            // 
+            this.txtUsername.Location = new System.Drawing.Point(137, 373);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(250, 20);
+            this.txtUsername.Size = new System.Drawing.Size(285, 22);
             this.txtUsername.TabIndex = 16;
-
+            // 
             // lblPassword
+            // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(30, 390);
+            this.lblPassword.Location = new System.Drawing.Point(34, 416);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(67, 15);
+            this.lblPassword.Size = new System.Drawing.Size(70, 16);
             this.lblPassword.TabIndex = 17;
             this.lblPassword.Text = "Password:";
-
+            // 
             // txtPassword
-            this.txtPassword.Location = new System.Drawing.Point(120, 390);
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(137, 416);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(250, 20);
+            this.txtPassword.Size = new System.Drawing.Size(285, 22);
             this.txtPassword.TabIndex = 18;
             this.txtPassword.UseSystemPasswordChar = true;
-
+            // 
             // lblConfirmPassword
+            // 
             this.lblConfirmPassword.AutoSize = true;
-            this.lblConfirmPassword.Location = new System.Drawing.Point(30, 430);
+            this.lblConfirmPassword.Location = new System.Drawing.Point(34, 459);
             this.lblConfirmPassword.Name = "lblConfirmPassword";
-            this.lblConfirmPassword.Size = new System.Drawing.Size(111, 15);
+            this.lblConfirmPassword.Size = new System.Drawing.Size(118, 16);
             this.lblConfirmPassword.TabIndex = 19;
             this.lblConfirmPassword.Text = "Confirm Password:";
-
+            // 
             // txtConfirmPassword
-            this.txtConfirmPassword.Location = new System.Drawing.Point(150, 430);
+            // 
+            this.txtConfirmPassword.Location = new System.Drawing.Point(171, 459);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
-            this.txtConfirmPassword.Size = new System.Drawing.Size(220, 20);
+            this.txtConfirmPassword.Size = new System.Drawing.Size(251, 22);
             this.txtConfirmPassword.TabIndex = 20;
             this.txtConfirmPassword.UseSystemPasswordChar = true;
-
+            // 
+            // lblDateOfBirth
+            // 
+            this.lblDateOfBirth.AutoSize = true;
+            this.lblDateOfBirth.Location = new System.Drawing.Point(34, 331);
+            this.lblDateOfBirth.Name = "lblDateOfBirth";
+            this.lblDateOfBirth.Size = new System.Drawing.Size(82, 16);
+            this.lblDateOfBirth.TabIndex = 13;
+            this.lblDateOfBirth.Text = "Date of Birth:";
+            // 
+            // dtpDateOfBirth
+            // 
+            this.dtpDateOfBirth.Location = new System.Drawing.Point(137, 331);
+            this.dtpDateOfBirth.Name = "dtpDateOfBirth";
+            this.dtpDateOfBirth.Size = new System.Drawing.Size(285, 22);
+            this.dtpDateOfBirth.TabIndex = 14;
+            // 
             // btnRegister
-            this.btnRegister.BackColor = System.Drawing.Color.FromArgb(40, 167, 69);
+            // 
+            this.btnRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
             this.btnRegister.ForeColor = System.Drawing.Color.White;
-            this.btnRegister.Location = new System.Drawing.Point(150, 480);
+            this.btnRegister.Location = new System.Drawing.Point(171, 512);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(100, 35);
+            this.btnRegister.Size = new System.Drawing.Size(114, 37);
             this.btnRegister.TabIndex = 21;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = false;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
-
+            // 
             // btnCancel
-            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(108, 117, 125);
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(117)))), ((int)(((byte)(125)))));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(270, 480);
+            this.btnCancel.Location = new System.Drawing.Point(309, 512);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(100, 35);
+            this.btnCancel.Size = new System.Drawing.Size(114, 37);
             this.btnCancel.TabIndex = 22;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-
+            // 
             // RegistrationForm
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(450, 550);
+            this.ClientSize = new System.Drawing.Size(514, 587);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.txtConfirmPassword);
@@ -361,6 +385,7 @@ namespace SmartMedPharmacy.UI
             this.Text = "SmartMed Pharmacy - Customer Registration";
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         private System.Windows.Forms.Label lblTitle;

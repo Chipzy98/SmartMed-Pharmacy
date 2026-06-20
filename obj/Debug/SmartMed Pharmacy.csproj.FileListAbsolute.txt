@@ -2,3 +2,13 @@ D:\Chipzy\Application Development\SmartMed Pharmacy\SmartMed Pharmacy\obj\Debug\
 D:\Chipzy\Application Development\SmartMed Pharmacy\SmartMed Pharmacy\obj\Debug\SmartMed_Pharmacy.Properties.Resources.resources
 D:\Chipzy\Application Development\SmartMed Pharmacy\SmartMed Pharmacy\obj\Debug\SmartMed Pharmacy.csproj.GenerateResource.cache
 D:\Chipzy\Application Development\SmartMed Pharmacy\SmartMed Pharmacy\obj\Debug\SmartMed Pharmacy.csproj.CoreCompileInputs.cache
+D:\Chipzy\Application Development\SmartMed Pharmacy\SmartMed Pharmacy\obj\Debug\SmartMed Pharmacy.exe.config
+D:\Chipzy\Application Development\SmartMed Pharmacy\SmartMed Pharmacy\obj\Debug\SmartMed Pharmacy.exe
+D:\Chipzy\Application Development\SmartMed Pharmacy\SmartMed Pharmacy\obj\Debug\SmartMed Pharmacy.pdb
+D:\Chipzy\Application Development\SmartMed Pharmacy\SmartMed Pharmacy\bin\Debug\SmartMed Pharmacy.exe.config
+D:\Chipzy\Application Development\SmartMed Pharmacy\SmartMed Pharmacy\bin\Debug\SmartMed Pharmacy.exe
+D:\Chipzy\Application Development\SmartMed Pharmacy\SmartMed Pharmacy\bin\Debug\SmartMed Pharmacy.pdb
+D:\Chipzy\Application Development\SmartMed Pharmacy\SmartMed Pharmacy\bin\Debug\Newtonsoft.Json.dll
+D:\Chipzy\Application Development\SmartMed Pharmacy\SmartMed Pharmacy\bin\Debug\Newtonsoft.Json.xml
+D:\Chipzy\Application Development\SmartMed Pharmacy\SmartMed Pharmacy\obj\Debug\SmartMed.AA8C1A03.Up2Date
+D:\Chipzy\Application Development\SmartMed Pharmacy\SmartMed Pharmacy\obj\Debug\SmartMedPharmacy.UI.LoginForm.resources

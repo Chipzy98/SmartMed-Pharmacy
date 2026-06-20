@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -13,6 +13,7 @@ namespace SmartMedPharmacy.UI
         private DataManager _dataManager;
         private Order _currentOrder;
         private List<Medicine> _cartMedicines;
+        private int _nextOrderId = 1;  // Auto-increment for order IDs
 
         public CustomerDashboard(Customer customer, DataManager dataManager)
         {
@@ -20,7 +21,9 @@ namespace SmartMedPharmacy.UI
             _customer = customer;
             _dataManager = dataManager;
             _cartMedicines = new List<Medicine>();
-            _currentOrder = new Order(_customer.CustomerId, _customer.GetFullName());
+
+            // ✅ FIXED: Proper Order constructor call with 3 parameters
+            _currentOrder = new Order(_nextOrderId++, _customer.CustomerId, _customer.GetFullName());
         }
 
         private void CustomerDashboard_Load(object sender, EventArgs e)
@@ -75,7 +78,7 @@ namespace SmartMedPharmacy.UI
 
                 if (medicine.RequiresPrescription)
                 {
-                    MessageBox.Show("This medicine requires a prescription. Please upload prescription to proceed.", 
+                    MessageBox.Show("This medicine requires a prescription. Please upload prescription to proceed.",
                         "Prescription Required", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
@@ -137,7 +140,7 @@ namespace SmartMedPharmacy.UI
         private void UpdateCart()
         {
             dgvCart.DataSource = _currentOrder.Items.Select(i => new { i.OrderItemId, i.MedicineName, i.Quantity, i.UnitPrice }).ToList();
-            lblCartTotal.Text = $"Total: ${_currentOrder.TotalAmount:F2}";
+            lblCartTotal.Text = $"Total: Rs.{_currentOrder.TotalAmount:F2}";
         }
 
         private void btnRemoveFromCart_Click(object sender, EventArgs e)
@@ -165,7 +168,9 @@ namespace SmartMedPharmacy.UI
             {
                 _dataManager.AddOrder(_currentOrder);
                 MessageBox.Show($"Order placed successfully. Order ID: {_currentOrder.OrderId}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                _currentOrder = new Order(_customer.CustomerId, _customer.GetFullName());
+
+                // ✅ FIXED: Create new order with correct constructor
+                _currentOrder = new Order(_nextOrderId++, _customer.CustomerId, _customer.GetFullName());
                 UpdateCart();
             }
             catch (Exception ex)
@@ -195,7 +200,7 @@ namespace SmartMedPharmacy.UI
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to logout?", "Confirm Logout", 
+            if (MessageBox.Show("Are you sure you want to logout?", "Confirm Logout",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 LoginForm loginForm = new LoginForm();
@@ -323,7 +328,7 @@ namespace SmartMedPharmacy.UI
             this.lblCartTotal.Name = "lblCartTotal";
             this.lblCartTotal.Size = new System.Drawing.Size(80, 19);
             this.lblCartTotal.TabIndex = 1;
-            this.lblCartTotal.Text = "Total: $0.00";
+            this.lblCartTotal.Text = "Total: Rs.0.00";
 
             this.btnRemoveFromCart.BackColor = System.Drawing.Color.FromArgb(220, 53, 69);
             this.btnRemoveFromCart.ForeColor = System.Drawing.Color.White;

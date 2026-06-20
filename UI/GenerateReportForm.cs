@@ -27,14 +27,14 @@ namespace SmartMedPharmacy.UI
 
                 string report = "=== SALES REPORT ===\n";
                 report += $"Generated: {DateTime.Now:yyyy-MM-dd HH:mm:ss}\n\n";
-                report += $"Total Sales: ${totalSales:F2}\n";
+                report += $"Total Sales: Rs.{totalSales:F2}\n";
                 report += $"Total Delivered Orders: {totalOrders}\n";
-                report += $"Average Order Value: ${(totalOrders > 0 ? totalSales / totalOrders : 0):F2}\n\n";
+                report += $"Average Order Value: Rs.{(totalOrders > 0 ? totalSales / totalOrders : 0):F2}\n\n";
                 report += "=== ORDER DETAILS ===\n";
 
                 foreach (var order in orders)
                 {
-                    report += $"Order ID: {order.OrderId} | Customer: {order.CustomerName} | Amount: ${order.TotalAmount:F2}\n";
+                    report += $"Order ID: {order.OrderId} | Customer: {order.CustomerName} | Amount: Rs.{order.TotalAmount:F2}\n";
                 }
 
                 rtbReport.Text = report;
@@ -109,7 +109,7 @@ namespace SmartMedPharmacy.UI
                     var customer = customers.FirstOrDefault(c => c.CustomerId == customerGroup.Key);
                     if (customer != null)
                     {
-                        report += $"{customer.GetFullName()} - Orders: {customerGroup.Count()} - Total: ${customerGroup.Sum(o => o.TotalAmount):F2}\n";
+                        report += $"{customer.GetFullName()} - Orders: {customerGroup.Count()} - Total: Rs.{customerGroup.Sum(o => o.TotalAmount):F2}\n";
                     }
                 }
 
