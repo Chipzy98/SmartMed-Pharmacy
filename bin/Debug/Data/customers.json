@@ -1,0 +1,30 @@
+[
+  {
+    "CustomerId": 1,
+    "FirstName": "Tharaka",
+    "LastName": "Bandara",
+    "Email": "vinuth@gmail.com",
+    "PhoneNumber": "0752705446",
+    "Address": "73/16,gampola",
+    "City": "gampola",
+    "Username": "Tharaka",
+    "Password": "123456",
+    "DateOfBirth": "1998-02-18T12:08:42",
+    "RegistrationDate": "2026-06-20T12:09:59.8057631+05:30",
+    "IsActive": true
+  },
+  {
+    "CustomerId": 2,
+    "FirstName": "Vimukthi",
+    "LastName": "Bandara",
+    "Email": "oxo@gmail.com",
+    "PhoneNumber": "0754545466",
+    "Address": "15/78,Kandy",
+    "City": "Kandy",
+    "Username": "vimu",
+    "Password": "vimu123",
+    "DateOfBirth": "1988-06-20T15:15:30",
+    "RegistrationDate": "2026-06-20T15:17:04.6730004+05:30",
+    "IsActive": true
+  }
+]

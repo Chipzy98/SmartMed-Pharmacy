@@ -1,0 +1,14 @@
+[
+  {
+    "AdminId": 1,
+    "FirstName": "John",
+    "LastName": "Doe",
+    "Email": "admin@smartmed.com",
+    "PhoneNumber": "0771234567",
+    "Username": "admin",
+    "Password": "admin123",
+    "Role": "Manager",
+    "CreatedDate": "2026-06-20T12:08:34.4978621+05:30",
+    "IsActive": true
+  }
+]

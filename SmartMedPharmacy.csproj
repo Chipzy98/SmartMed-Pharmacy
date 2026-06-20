@@ -1,0 +1,21 @@
+&lt;Project Sdk="Microsoft.NET.Sdk.WindowsDesktop"&gt;
+
+  &lt;PropertyGroup&gt;
+    &lt;OutputType&gt;WinExe&lt;/OutputType&gt;
+    &lt;TargetFramework&gt;net6.0-windows&lt;/TargetFramework&gt;
+    &lt;Nullable&gt;enable&lt;/Nullable&gt;
+    &lt;UseWindowsForms&gt;true&lt;/UseWindowsForms&gt;
+    &lt;StartupObject&gt;SmartMedPharmacy.Program&lt;/StartupObject&gt;
+    &lt;AssemblyName&gt;SmartMedPharmacy&lt;/AssemblyName&gt;
+    &lt;RootNamespace&gt;SmartMedPharmacy&lt;/RootNamespace&gt;
+  &lt;/PropertyGroup&gt;
+
+  &lt;ItemGroup&gt;
+    &lt;PackageReference Include="Newtonsoft.Json" Version="13.0.3" /&gt;
+  &lt;/ItemGroup&gt;
+
+  &lt;ItemGroup&gt;
+    &lt;Folder Include="Data\" /&gt;
+  &lt;/ItemGroup&gt;
+
+&lt;/Project&gt;

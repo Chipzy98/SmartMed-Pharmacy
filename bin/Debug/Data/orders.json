@@ -1,0 +1,75 @@
+[
+  {
+    "OrderId": 1,
+    "CustomerId": 1,
+    "CustomerName": "Tharaka Bandara",
+    "OrderDate": "2026-06-20T14:03:52.3352728+05:30",
+    "Status": 2,
+    "Items": [
+      {
+        "OrderItemId": 1,
+        "MedicineId": 1,
+        "MedicineName": "Panadol",
+        "Quantity": 10,
+        "UnitPrice": 5.0,
+        "Discount": 0.0
+      }
+    ],
+    "TotalAmount": 50.0,
+    "SpecialNotes": null
+  },
+  {
+    "OrderId": 2,
+    "CustomerId": 1,
+    "CustomerName": "Tharaka Bandara",
+    "OrderDate": "2026-06-20T14:15:04.1306729+05:30",
+    "Status": 2,
+    "Items": [
+      {
+        "OrderItemId": 1,
+        "MedicineId": 9,
+        "MedicineName": "Omeprazole",
+        "Quantity": 10,
+        "UnitPrice": 12.0,
+        "Discount": 1.5
+      },
+      {
+        "OrderItemId": 2,
+        "MedicineId": 10,
+        "MedicineName": "Pantoprazole",
+        "Quantity": 6,
+        "UnitPrice": 15.0,
+        "Discount": 1.0
+      },
+      {
+        "OrderItemId": 3,
+        "MedicineId": 11,
+        "MedicineName": "Aspirin",
+        "Quantity": 25,
+        "UnitPrice": 3.0,
+        "Discount": 0.0
+      }
+    ],
+    "TotalAmount": 285.0,
+    "SpecialNotes": null
+  },
+  {
+    "OrderId": 3,
+    "CustomerId": 2,
+    "CustomerName": "Vimukthi Bandara",
+    "OrderDate": "2026-06-20T15:17:18.037882+05:30",
+    "Status": 1,
+    "Items": [
+      {
+        "OrderItemId": 1,
+        "MedicineId": 1,
+        "MedicineName": "Panadol",
+        "Quantity": 100,
+        "UnitPrice": 5.0,
+        "Discount": 1.5
+      }
+    ],
+    "TotalAmount": 500.0,
+    "SpecialNotes": null
+  }
+]
