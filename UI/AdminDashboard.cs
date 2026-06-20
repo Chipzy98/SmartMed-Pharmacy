@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -41,7 +41,7 @@ namespace SmartMedPharmacy.UI
                 int totalMedicines = medicines.Count;
                 int activeOrders = orders.Count(o => o.Status == OrderStatus.Pending || o.Status == OrderStatus.ReadyForPickup);
 
-                lblTotalSales.Text = $"Rs.{totalSales:F2}";
+                lblTotalSales.Text = $"${totalSales:F2}";
                 lblTotalMedicines.Text = totalMedicines.ToString();
                 lblActiveOrders.Text = activeOrders.ToString();
                 lblTotalCustomers.Text = customers.Count.ToString();
@@ -104,7 +104,7 @@ namespace SmartMedPharmacy.UI
                 return;
             }
 
-            if (MessageBox.Show("Are you sure you want to delete this medicine?", "Confirm Delete",
+            if (MessageBox.Show("Are you sure you want to delete this medicine?", "Confirm Delete", 
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 try
@@ -200,26 +200,15 @@ namespace SmartMedPharmacy.UI
             }
         }
 
-        /// <summary>
-        /// Opens the Generate Report Form
-        /// Reports available: Sales, Stock, Customer
-        /// </summary>
         private void btnGenerateReport_Click(object sender, EventArgs e)
         {
-            try
-            {
-                GenerateReportForm reportForm = new GenerateReportForm(_dataManager);
-                reportForm.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error opening report form: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            GenerateReportForm reportForm = new GenerateReportForm(_dataManager);
+            reportForm.ShowDialog();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to logout?", "Confirm Logout",
+            if (MessageBox.Show("Are you sure you want to logout?", "Confirm Logout", 
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 LoginForm loginForm = new LoginForm();
@@ -267,10 +256,8 @@ namespace SmartMedPharmacy.UI
             this.tabCustomers = new System.Windows.Forms.TabPage();
             this.dgvCustomers = new System.Windows.Forms.DataGridView();
             this.btnViewCustomers = new System.Windows.Forms.Button();
-            this.pnlTopBar = new System.Windows.Forms.Panel();
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnGenerateReport = new System.Windows.Forms.Button();
-
             this.tabControl.SuspendLayout();
             this.tabDashboard.SuspendLayout();
             this.tabMedicines.SuspendLayout();
@@ -279,16 +266,7 @@ namespace SmartMedPharmacy.UI
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).BeginInit();
             this.tabCustomers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).BeginInit();
-            this.pnlTopBar.SuspendLayout();
             this.SuspendLayout();
-
-            // Top Bar Panel
-            this.pnlTopBar.BackColor = System.Drawing.Color.FromArgb(33, 37, 41);
-            this.pnlTopBar.Controls.Add(this.btnGenerateReport);
-            this.pnlTopBar.Controls.Add(this.btnLogout);
-            this.pnlTopBar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlTopBar.Height = 50;
-            this.pnlTopBar.Name = "pnlTopBar";
 
             // tabControl
             this.tabControl.Controls.Add(this.tabDashboard);
@@ -296,10 +274,10 @@ namespace SmartMedPharmacy.UI
             this.tabControl.Controls.Add(this.tabOrders);
             this.tabControl.Controls.Add(this.tabCustomers);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl.Location = new System.Drawing.Point(0, 50);
+            this.tabControl.Location = new System.Drawing.Point(0, 40);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1143, 643);
+            this.tabControl.Size = new System.Drawing.Size(1000, 600);
             this.tabControl.TabIndex = 0;
 
             // tabDashboard
@@ -312,9 +290,9 @@ namespace SmartMedPharmacy.UI
             this.tabDashboard.Controls.Add(this.lblActiveOrders);
             this.tabDashboard.Controls.Add(this.lblCustomersLabel);
             this.tabDashboard.Controls.Add(this.lblTotalCustomers);
-            this.tabDashboard.Location = new System.Drawing.Point(4, 25);
+            this.tabDashboard.Location = new System.Drawing.Point(4, 22);
             this.tabDashboard.Name = "tabDashboard";
-            this.tabDashboard.Size = new System.Drawing.Size(1135, 614);
+            this.tabDashboard.Size = new System.Drawing.Size(992, 574);
             this.tabDashboard.TabIndex = 0;
             this.tabDashboard.Text = "Dashboard";
             this.tabDashboard.UseVisualStyleBackColor = true;
@@ -322,17 +300,17 @@ namespace SmartMedPharmacy.UI
             // lblWelcome
             this.lblWelcome.AutoSize = true;
             this.lblWelcome.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold);
-            this.lblWelcome.Location = new System.Drawing.Point(34, 32);
+            this.lblWelcome.Location = new System.Drawing.Point(30, 30);
             this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(118, 29);
+            this.lblWelcome.Size = new System.Drawing.Size(100, 26);
             this.lblWelcome.TabIndex = 0;
             this.lblWelcome.Text = "Welcome";
 
             // lblSalesLabel
             this.lblSalesLabel.AutoSize = true;
-            this.lblSalesLabel.Location = new System.Drawing.Point(57, 107);
+            this.lblSalesLabel.Location = new System.Drawing.Point(50, 100);
             this.lblSalesLabel.Name = "lblSalesLabel";
-            this.lblSalesLabel.Size = new System.Drawing.Size(79, 16);
+            this.lblSalesLabel.Size = new System.Drawing.Size(77, 15);
             this.lblSalesLabel.TabIndex = 1;
             this.lblSalesLabel.Text = "Total Sales:";
 
@@ -340,17 +318,17 @@ namespace SmartMedPharmacy.UI
             this.lblTotalSales.AutoSize = true;
             this.lblTotalSales.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.lblTotalSales.ForeColor = System.Drawing.Color.Green;
-            this.lblTotalSales.Location = new System.Drawing.Point(171, 107);
+            this.lblTotalSales.Location = new System.Drawing.Point(150, 100);
             this.lblTotalSales.Name = "lblTotalSales";
-            this.lblTotalSales.Size = new System.Drawing.Size(80, 24);
+            this.lblTotalSales.Size = new System.Drawing.Size(50, 19);
             this.lblTotalSales.TabIndex = 2;
-            this.lblTotalSales.Text = "Rs.0.00";
+            this.lblTotalSales.Text = "$0.00";
 
             // lblMedicinesLabel
             this.lblMedicinesLabel.AutoSize = true;
-            this.lblMedicinesLabel.Location = new System.Drawing.Point(57, 160);
+            this.lblMedicinesLabel.Location = new System.Drawing.Point(50, 150);
             this.lblMedicinesLabel.Name = "lblMedicinesLabel";
-            this.lblMedicinesLabel.Size = new System.Drawing.Size(106, 16);
+            this.lblMedicinesLabel.Size = new System.Drawing.Size(102, 15);
             this.lblMedicinesLabel.TabIndex = 3;
             this.lblMedicinesLabel.Text = "Total Medicines:";
 
@@ -358,17 +336,17 @@ namespace SmartMedPharmacy.UI
             this.lblTotalMedicines.AutoSize = true;
             this.lblTotalMedicines.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.lblTotalMedicines.ForeColor = System.Drawing.Color.Blue;
-            this.lblTotalMedicines.Location = new System.Drawing.Point(171, 160);
+            this.lblTotalMedicines.Location = new System.Drawing.Point(150, 150);
             this.lblTotalMedicines.Name = "lblTotalMedicines";
-            this.lblTotalMedicines.Size = new System.Drawing.Size(21, 24);
+            this.lblTotalMedicines.Size = new System.Drawing.Size(19, 19);
             this.lblTotalMedicines.TabIndex = 4;
             this.lblTotalMedicines.Text = "0";
 
             // lblOrdersLabel
             this.lblOrdersLabel.AutoSize = true;
-            this.lblOrdersLabel.Location = new System.Drawing.Point(57, 213);
+            this.lblOrdersLabel.Location = new System.Drawing.Point(50, 200);
             this.lblOrdersLabel.Name = "lblOrdersLabel";
-            this.lblOrdersLabel.Size = new System.Drawing.Size(91, 16);
+            this.lblOrdersLabel.Size = new System.Drawing.Size(86, 15);
             this.lblOrdersLabel.TabIndex = 5;
             this.lblOrdersLabel.Text = "Active Orders:";
 
@@ -376,17 +354,17 @@ namespace SmartMedPharmacy.UI
             this.lblActiveOrders.AutoSize = true;
             this.lblActiveOrders.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.lblActiveOrders.ForeColor = System.Drawing.Color.Orange;
-            this.lblActiveOrders.Location = new System.Drawing.Point(171, 213);
+            this.lblActiveOrders.Location = new System.Drawing.Point(150, 200);
             this.lblActiveOrders.Name = "lblActiveOrders";
-            this.lblActiveOrders.Size = new System.Drawing.Size(21, 24);
+            this.lblActiveOrders.Size = new System.Drawing.Size(19, 19);
             this.lblActiveOrders.TabIndex = 6;
             this.lblActiveOrders.Text = "0";
 
             // lblCustomersLabel
             this.lblCustomersLabel.AutoSize = true;
-            this.lblCustomersLabel.Location = new System.Drawing.Point(57, 267);
+            this.lblCustomersLabel.Location = new System.Drawing.Point(50, 250);
             this.lblCustomersLabel.Name = "lblCustomersLabel";
-            this.lblCustomersLabel.Size = new System.Drawing.Size(108, 16);
+            this.lblCustomersLabel.Size = new System.Drawing.Size(105, 15);
             this.lblCustomersLabel.TabIndex = 7;
             this.lblCustomersLabel.Text = "Total Customers:";
 
@@ -394,9 +372,9 @@ namespace SmartMedPharmacy.UI
             this.lblTotalCustomers.AutoSize = true;
             this.lblTotalCustomers.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.lblTotalCustomers.ForeColor = System.Drawing.Color.Purple;
-            this.lblTotalCustomers.Location = new System.Drawing.Point(171, 267);
+            this.lblTotalCustomers.Location = new System.Drawing.Point(150, 250);
             this.lblTotalCustomers.Name = "lblTotalCustomers";
-            this.lblTotalCustomers.Size = new System.Drawing.Size(21, 24);
+            this.lblTotalCustomers.Size = new System.Drawing.Size(19, 19);
             this.lblTotalCustomers.TabIndex = 8;
             this.lblTotalCustomers.Text = "0";
 
@@ -407,101 +385,100 @@ namespace SmartMedPharmacy.UI
             this.tabMedicines.Controls.Add(this.btnDeleteMedicine);
             this.tabMedicines.Controls.Add(this.btnSearchMedicine);
             this.tabMedicines.Controls.Add(this.txtSearchMedicine);
-            this.tabMedicines.Location = new System.Drawing.Point(4, 25);
+            this.tabMedicines.Location = new System.Drawing.Point(4, 22);
             this.tabMedicines.Name = "tabMedicines";
-            this.tabMedicines.Size = new System.Drawing.Size(1135, 614);
+            this.tabMedicines.Size = new System.Drawing.Size(992, 574);
             this.tabMedicines.TabIndex = 1;
             this.tabMedicines.Text = "Medicines";
             this.tabMedicines.UseVisualStyleBackColor = true;
 
             // dgvMedicines
             this.dgvMedicines.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMedicines.Location = new System.Drawing.Point(23, 75);
+            this.dgvMedicines.Location = new System.Drawing.Point(20, 70);
             this.dgvMedicines.Name = "dgvMedicines";
-            this.dgvMedicines.RowHeadersWidth = 51;
-            this.dgvMedicines.Size = new System.Drawing.Size(1086, 427);
+            this.dgvMedicines.Size = new System.Drawing.Size(950, 400);
             this.dgvMedicines.TabIndex = 0;
 
             // btnAddMedicine
-            this.btnAddMedicine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
+            this.btnAddMedicine.BackColor = System.Drawing.Color.FromArgb(40, 167, 69);
             this.btnAddMedicine.ForeColor = System.Drawing.Color.White;
-            this.btnAddMedicine.Location = new System.Drawing.Point(23, 523);
+            this.btnAddMedicine.Location = new System.Drawing.Point(20, 490);
             this.btnAddMedicine.Name = "btnAddMedicine";
-            this.btnAddMedicine.Size = new System.Drawing.Size(114, 37);
+            this.btnAddMedicine.Size = new System.Drawing.Size(100, 35);
             this.btnAddMedicine.TabIndex = 1;
             this.btnAddMedicine.Text = "Add";
             this.btnAddMedicine.UseVisualStyleBackColor = false;
             this.btnAddMedicine.Click += new System.EventHandler(this.btnAddMedicine_Click);
 
             // btnUpdateMedicine
-            this.btnUpdateMedicine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(255)))));
+            this.btnUpdateMedicine.BackColor = System.Drawing.Color.FromArgb(0, 123, 255);
             this.btnUpdateMedicine.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateMedicine.Location = new System.Drawing.Point(160, 523);
+            this.btnUpdateMedicine.Location = new System.Drawing.Point(140, 490);
             this.btnUpdateMedicine.Name = "btnUpdateMedicine";
-            this.btnUpdateMedicine.Size = new System.Drawing.Size(114, 37);
+            this.btnUpdateMedicine.Size = new System.Drawing.Size(100, 35);
             this.btnUpdateMedicine.TabIndex = 2;
             this.btnUpdateMedicine.Text = "Update";
             this.btnUpdateMedicine.UseVisualStyleBackColor = false;
             this.btnUpdateMedicine.Click += new System.EventHandler(this.btnUpdateMedicine_Click);
 
             // btnDeleteMedicine
-            this.btnDeleteMedicine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
+            this.btnDeleteMedicine.BackColor = System.Drawing.Color.FromArgb(220, 53, 69);
             this.btnDeleteMedicine.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteMedicine.Location = new System.Drawing.Point(297, 523);
+            this.btnDeleteMedicine.Location = new System.Drawing.Point(260, 490);
             this.btnDeleteMedicine.Name = "btnDeleteMedicine";
-            this.btnDeleteMedicine.Size = new System.Drawing.Size(114, 37);
+            this.btnDeleteMedicine.Size = new System.Drawing.Size(100, 35);
             this.btnDeleteMedicine.TabIndex = 3;
             this.btnDeleteMedicine.Text = "Delete";
             this.btnDeleteMedicine.UseVisualStyleBackColor = false;
             this.btnDeleteMedicine.Click += new System.EventHandler(this.btnDeleteMedicine_Click);
 
+            // txtSearchMedicine
+            this.txtSearchMedicine.Location = new System.Drawing.Point(20, 30);
+            this.txtSearchMedicine.Name = "txtSearchMedicine";
+            this.txtSearchMedicine.Size = new System.Drawing.Size(820, 20);
+            this.txtSearchMedicine.TabIndex = 4;
+            this.txtSearchMedicine.PlaceholderText = "Search medicines by name...";
+
             // btnSearchMedicine
-            this.btnSearchMedicine.Location = new System.Drawing.Point(971, 32);
+            this.btnSearchMedicine.Location = new System.Drawing.Point(850, 30);
             this.btnSearchMedicine.Name = "btnSearchMedicine";
-            this.btnSearchMedicine.Size = new System.Drawing.Size(137, 27);
+            this.btnSearchMedicine.Size = new System.Drawing.Size(120, 25);
             this.btnSearchMedicine.TabIndex = 5;
             this.btnSearchMedicine.Text = "Search";
             this.btnSearchMedicine.Click += new System.EventHandler(this.btnSearchMedicine_Click);
-
-            // txtSearchMedicine
-            this.txtSearchMedicine.Location = new System.Drawing.Point(23, 32);
-            this.txtSearchMedicine.Name = "txtSearchMedicine";
-            this.txtSearchMedicine.Size = new System.Drawing.Size(937, 22);
-            this.txtSearchMedicine.TabIndex = 4;
 
             // tabOrders
             this.tabOrders.Controls.Add(this.dgvOrders);
             this.tabOrders.Controls.Add(this.btnViewOrders);
             this.tabOrders.Controls.Add(this.btnUpdateOrderStatus);
-            this.tabOrders.Location = new System.Drawing.Point(4, 25);
+            this.tabOrders.Location = new System.Drawing.Point(4, 22);
             this.tabOrders.Name = "tabOrders";
-            this.tabOrders.Size = new System.Drawing.Size(1135, 614);
+            this.tabOrders.Size = new System.Drawing.Size(992, 574);
             this.tabOrders.TabIndex = 2;
             this.tabOrders.Text = "Orders";
             this.tabOrders.UseVisualStyleBackColor = true;
 
             // dgvOrders
             this.dgvOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOrders.Location = new System.Drawing.Point(23, 64);
+            this.dgvOrders.Location = new System.Drawing.Point(20, 60);
             this.dgvOrders.Name = "dgvOrders";
-            this.dgvOrders.RowHeadersWidth = 51;
-            this.dgvOrders.Size = new System.Drawing.Size(1086, 427);
+            this.dgvOrders.Size = new System.Drawing.Size(950, 400);
             this.dgvOrders.TabIndex = 0;
 
             // btnViewOrders
-            this.btnViewOrders.Location = new System.Drawing.Point(23, 32);
+            this.btnViewOrders.Location = new System.Drawing.Point(20, 30);
             this.btnViewOrders.Name = "btnViewOrders";
-            this.btnViewOrders.Size = new System.Drawing.Size(114, 27);
+            this.btnViewOrders.Size = new System.Drawing.Size(100, 25);
             this.btnViewOrders.TabIndex = 1;
             this.btnViewOrders.Text = "Load Orders";
             this.btnViewOrders.Click += new System.EventHandler(this.btnViewOrders_Click);
 
             // btnUpdateOrderStatus
-            this.btnUpdateOrderStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(255)))));
+            this.btnUpdateOrderStatus.BackColor = System.Drawing.Color.FromArgb(0, 123, 255);
             this.btnUpdateOrderStatus.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateOrderStatus.Location = new System.Drawing.Point(23, 523);
+            this.btnUpdateOrderStatus.Location = new System.Drawing.Point(20, 490);
             this.btnUpdateOrderStatus.Name = "btnUpdateOrderStatus";
-            this.btnUpdateOrderStatus.Size = new System.Drawing.Size(171, 37);
+            this.btnUpdateOrderStatus.Size = new System.Drawing.Size(150, 35);
             this.btnUpdateOrderStatus.TabIndex = 2;
             this.btnUpdateOrderStatus.Text = "Update Status";
             this.btnUpdateOrderStatus.UseVisualStyleBackColor = false;
@@ -510,64 +487,61 @@ namespace SmartMedPharmacy.UI
             // tabCustomers
             this.tabCustomers.Controls.Add(this.dgvCustomers);
             this.tabCustomers.Controls.Add(this.btnViewCustomers);
-            this.tabCustomers.Location = new System.Drawing.Point(4, 25);
+            this.tabCustomers.Location = new System.Drawing.Point(4, 22);
             this.tabCustomers.Name = "tabCustomers";
-            this.tabCustomers.Size = new System.Drawing.Size(1135, 614);
+            this.tabCustomers.Size = new System.Drawing.Size(992, 574);
             this.tabCustomers.TabIndex = 3;
             this.tabCustomers.Text = "Customers";
             this.tabCustomers.UseVisualStyleBackColor = true;
 
             // dgvCustomers
             this.dgvCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCustomers.Location = new System.Drawing.Point(23, 64);
+            this.dgvCustomers.Location = new System.Drawing.Point(20, 60);
             this.dgvCustomers.Name = "dgvCustomers";
-            this.dgvCustomers.RowHeadersWidth = 51;
-            this.dgvCustomers.Size = new System.Drawing.Size(1086, 480);
+            this.dgvCustomers.Size = new System.Drawing.Size(950, 450);
             this.dgvCustomers.TabIndex = 0;
 
             // btnViewCustomers
-            this.btnViewCustomers.Location = new System.Drawing.Point(23, 32);
+            this.btnViewCustomers.Location = new System.Drawing.Point(20, 30);
             this.btnViewCustomers.Name = "btnViewCustomers";
-            this.btnViewCustomers.Size = new System.Drawing.Size(137, 27);
+            this.btnViewCustomers.Size = new System.Drawing.Size(120, 25);
             this.btnViewCustomers.TabIndex = 1;
             this.btnViewCustomers.Text = "Load Customers";
             this.btnViewCustomers.Click += new System.EventHandler(this.btnViewCustomers_Click);
 
-            // btnGenerateReport - IMPROVED POSITIONING
-            this.btnGenerateReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(66)))), ((int)(((byte)(193)))));
+            // btnGenerateReport
+            this.btnGenerateReport.BackColor = System.Drawing.Color.FromArgb(111, 66, 193);
             this.btnGenerateReport.ForeColor = System.Drawing.Color.White;
-            this.btnGenerateReport.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.btnGenerateReport.Location = new System.Drawing.Point(20, 10);
+            this.btnGenerateReport.Location = new System.Drawing.Point(450, 10);
             this.btnGenerateReport.Name = "btnGenerateReport";
-            this.btnGenerateReport.Size = new System.Drawing.Size(180, 35);
+            this.btnGenerateReport.Size = new System.Drawing.Size(150, 25);
             this.btnGenerateReport.TabIndex = 1;
-            this.btnGenerateReport.Text = "📊 Generate Reports";
+            this.btnGenerateReport.Text = "Generate Report";
             this.btnGenerateReport.UseVisualStyleBackColor = false;
             this.btnGenerateReport.Click += new System.EventHandler(this.btnGenerateReport_Click);
 
             // btnLogout
-            this.btnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
+            this.btnLogout.BackColor = System.Drawing.Color.FromArgb(220, 53, 69);
             this.btnLogout.ForeColor = System.Drawing.Color.White;
-            this.btnLogout.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.btnLogout.Location = new System.Drawing.Point(1020, 10);
+            this.btnLogout.Location = new System.Drawing.Point(850, 10);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(110, 35);
+            this.btnLogout.Size = new System.Drawing.Size(100, 25);
             this.btnLogout.TabIndex = 2;
-            this.btnLogout.Text = "🚪 Logout";
+            this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
 
             // AdminDashboard
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1143, 693);
+            this.ClientSize = new System.Drawing.Size(1000, 650);
             this.Controls.Add(this.tabControl);
-            this.Controls.Add(this.pnlTopBar);
+            this.Controls.Add(this.btnGenerateReport);
+            this.Controls.Add(this.btnLogout);
             this.Name = "AdminDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SmartMed Pharmacy - Admin Dashboard";
             this.Load += new System.EventHandler(this.AdminDashboard_Load);
-
             this.tabControl.ResumeLayout(false);
             this.tabDashboard.ResumeLayout(false);
             this.tabDashboard.PerformLayout();
@@ -578,7 +552,6 @@ namespace SmartMedPharmacy.UI
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();
             this.tabCustomers.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).EndInit();
-            this.pnlTopBar.ResumeLayout(false);
             this.ResumeLayout(false);
         }
 
@@ -607,7 +580,6 @@ namespace SmartMedPharmacy.UI
         private System.Windows.Forms.TabPage tabCustomers;
         private System.Windows.Forms.DataGridView dgvCustomers;
         private System.Windows.Forms.Button btnViewCustomers;
-        private System.Windows.Forms.Panel pnlTopBar;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnGenerateReport;
 

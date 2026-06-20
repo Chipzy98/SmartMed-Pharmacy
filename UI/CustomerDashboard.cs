@@ -137,7 +137,7 @@ namespace SmartMedPharmacy.UI
         private void UpdateCart()
         {
             dgvCart.DataSource = _currentOrder.Items.Select(i => new { i.OrderItemId, i.MedicineName, i.Quantity, i.UnitPrice }).ToList();
-            lblCartTotal.Text = $"Total: Rs.{_currentOrder.TotalAmount:F2}";
+            lblCartTotal.Text = $"Total: ${_currentOrder.TotalAmount:F2}";
         }
 
         private void btnRemoveFromCart_Click(object sender, EventArgs e)

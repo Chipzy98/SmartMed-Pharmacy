@@ -136,7 +136,6 @@ namespace SmartMedPharmacy.UI
             base.Dispose(disposing);
         }
 
-        // Ensure only one InitializeComponent method exists in the LoginForm class
         private void InitializeComponent()
         {
             this.lblTitle = new System.Windows.Forms.Label();

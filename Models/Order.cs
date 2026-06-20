@@ -57,9 +57,17 @@ namespace SmartMedPharmacy.Models
         public decimal TotalAmount { get; set; }
         public string SpecialNotes { get; set; }
 
-        // Updated constructor to match the usage in CustomerDashboard
-        public Order(int customerId, string customerName)
+        public Order()
         {
+            Items = new List<OrderItem>();
+            OrderDate = DateTime.Now;
+            Status = OrderStatus.Pending;
+            TotalAmount = 0;
+        }
+
+        public Order(int orderId, int customerId, string customerName)
+        {
+            OrderId = orderId;
             CustomerId = customerId;
             CustomerName = customerName;
             OrderDate = DateTime.Now;
@@ -68,35 +76,49 @@ namespace SmartMedPharmacy.Models
             TotalAmount = 0;
         }
 
+        /// <summary>
+        /// Adds an item to the order
+        /// </summary>
         public void AddItem(OrderItem item)
         {
-            Items.Add(item);
-            CalculateTotal();
-        }
-
-        public void RemoveItem(int orderItemId)
-        {
-            var item = Items.FirstOrDefault(i => i.OrderItemId == orderItemId);
             if (item != null)
             {
-                Items.Remove(item);
+                Items.Add(item);
                 CalculateTotal();
             }
         }
 
+        /// <summary>
+        /// Removes an item from the order
+        /// </summary>
+        public void RemoveItem(int orderItemId)
+        {
+            Items.RemoveAll(x => x.OrderItemId == orderItemId);
+            CalculateTotal();
+        }
+
+        /// <summary>
+        /// Calculates the total amount for the entire order
+        /// </summary>
         public void CalculateTotal()
         {
-            TotalAmount = Items.Sum(i => i.Quantity * i.UnitPrice);
+            TotalAmount = Items.Sum(item => item.GetTotal());
         }
 
+        /// <summary>
+        /// Gets the number of items in the order
+        /// </summary>
         public int GetItemCount()
         {
-            return Items.Sum(i => i.Quantity);
+            return Items.Sum(item => item.Quantity);
         }
 
+        /// <summary>
+        /// Gets the total quantity of unique medicines
+        /// </summary>
         public int GetUniqueMedicineCount()
         {
-            return Items.Select(i => i.MedicineId).Distinct().Count();
+            return Items.Count;
         }
     }
 }
