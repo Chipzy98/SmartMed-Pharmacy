@@ -459,12 +459,68 @@ namespace SmartMedPharmacy.DataAccess
                     throw new Exception("Username already exists");
 
                 admin.AdminId = admins.Count > 0 ? admins.Max(a => a.AdminId) + 1 : 1;
+                admin.CreatedDate = DateTime.Now;
                 admins.Add(admin);
                 SaveAdmins(admins);
             }
             catch (Exception ex)
             {
                 throw new Exception("Error adding admin: " + ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Gets an admin by ID
+        /// </summary>
+        public Admin GetAdminById(int adminId)
+        {
+            try
+            {
+                List<Admin> admins = GetAllAdmins();
+                return admins.FirstOrDefault(a => a.AdminId == adminId);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error getting admin: " + ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Updates an existing admin
+        /// </summary>
+        public void UpdateAdmin(Admin admin)
+        {
+            try
+            {
+                List<Admin> admins = GetAllAdmins();
+                Admin existing = admins.FirstOrDefault(a => a.AdminId == admin.AdminId);
+                if (existing != null)
+                {
+                    admins.Remove(existing);
+                    admins.Add(admin);
+                    SaveAdmins(admins);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error updating admin: " + ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Deletes an admin from storage
+        /// </summary>
+        public void DeleteAdmin(int adminId)
+        {
+            try
+            {
+                List<Admin> admins = GetAllAdmins();
+                admins.RemoveAll(a => a.AdminId == adminId);
+                SaveAdmins(admins);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error deleting admin: " + ex.Message);
             }
         }
 
@@ -481,6 +537,38 @@ namespace SmartMedPharmacy.DataAccess
             catch (Exception ex)
             {
                 throw new Exception("Error authenticating admin: " + ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Searches admins by role
+        /// </summary>
+        public List<Admin> GetAdminsByRole(string role)
+        {
+            try
+            {
+                List<Admin> admins = GetAllAdmins();
+                return admins.Where(a => a.Role.Equals(role, StringComparison.OrdinalIgnoreCase)).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error searching admins by role: " + ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Gets active admins only
+        /// </summary>
+        public List<Admin> GetActiveAdmins()
+        {
+            try
+            {
+                List<Admin> admins = GetAllAdmins();
+                return admins.Where(a => a.IsActive).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error getting active admins: " + ex.Message);
             }
         }
 

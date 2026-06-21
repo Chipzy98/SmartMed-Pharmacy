@@ -1,14 +1,24 @@
 [
   {
     "AdminId": 1,
-    "FirstName": "John",
-    "LastName": "Doe",
+    "FullName": "Tharaka Bandara",
     "Email": "admin@smartmed.com",
-    "PhoneNumber": "0771234567",
     "Username": "admin",
     "Password": "admin123",
     "Role": "Manager",
+    "IsActive": true,
     "CreatedDate": "2026-06-20T12:08:34.4978621+05:30",
-    "IsActive": true
+    "PhoneNumber": "0771234567"
+  },
+  {
+    "AdminId": 2,
+    "FullName": "Vimukthi Bandara",
+    "Email": "vimukthi@gmail.com",
+    "Username": "ceo",
+    "Password": "123456",
+    "Role": "CEO",
+    "IsActive": true,
+    "CreatedDate": "2026-06-21T12:57:29.048574+05:30",
+    "PhoneNumber": "0766545411"
   }
 ]

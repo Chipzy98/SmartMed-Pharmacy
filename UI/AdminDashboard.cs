@@ -24,6 +24,29 @@ namespace SmartMedPharmacy.UI
             lblWelcome.Text = $"Welcome, {_admin.GetFullName()}";
             LoadDashboardData();
             LoadMedicines();
+
+            // Show Admin Management button only for CEO and Manager roles
+            btnManageAdmins.Visible = (_admin.Role == "CEO" || _admin.Role == "Manager");
+        }
+
+        /// <summary>
+        /// Opens Admin Management Form
+        /// Only visible for CEO and Manager roles
+        /// </summary>
+        private void btnManageAdmins_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                AdminManagementForm adminForm = new AdminManagementForm();
+                adminForm.ShowDialog();
+                // Refresh dashboard data if needed
+                LoadDashboardData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error opening Admin Management: " + ex.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>
@@ -270,6 +293,7 @@ namespace SmartMedPharmacy.UI
             this.pnlTopBar = new System.Windows.Forms.Panel();
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnGenerateReport = new System.Windows.Forms.Button();
+            this.btnManageAdmins = new System.Windows.Forms.Button();
 
             this.tabControl.SuspendLayout();
             this.tabDashboard.SuspendLayout();
@@ -284,6 +308,7 @@ namespace SmartMedPharmacy.UI
 
             // Top Bar Panel
             this.pnlTopBar.BackColor = System.Drawing.Color.FromArgb(33, 37, 41);
+            this.pnlTopBar.Controls.Add(this.btnManageAdmins);
             this.pnlTopBar.Controls.Add(this.btnGenerateReport);
             this.pnlTopBar.Controls.Add(this.btnLogout);
             this.pnlTopBar.Dock = System.Windows.Forms.DockStyle.Top;
@@ -533,7 +558,20 @@ namespace SmartMedPharmacy.UI
             this.btnViewCustomers.Text = "Load Customers";
             this.btnViewCustomers.Click += new System.EventHandler(this.btnViewCustomers_Click);
 
-            // btnGenerateReport - IMPROVED POSITIONING
+            // btnManageAdmins - NEW BUTTON
+            this.btnManageAdmins.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.btnManageAdmins.ForeColor = System.Drawing.Color.White;
+            this.btnManageAdmins.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.btnManageAdmins.Location = new System.Drawing.Point(220, 10);
+            this.btnManageAdmins.Name = "btnManageAdmins";
+            this.btnManageAdmins.Size = new System.Drawing.Size(180, 35);
+            this.btnManageAdmins.TabIndex = 0;
+            this.btnManageAdmins.Text = "Manage Admins";
+            this.btnManageAdmins.UseVisualStyleBackColor = false;
+            this.btnManageAdmins.Click += new System.EventHandler(this.btnManageAdmins_Click);
+            this.btnManageAdmins.Visible = false; // Will be shown based on role
+
+            // btnGenerateReport
             this.btnGenerateReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(66)))), ((int)(((byte)(193)))));
             this.btnGenerateReport.ForeColor = System.Drawing.Color.White;
             this.btnGenerateReport.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
@@ -610,6 +648,7 @@ namespace SmartMedPharmacy.UI
         private System.Windows.Forms.Panel pnlTopBar;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnGenerateReport;
+        private System.Windows.Forms.Button btnManageAdmins;
 
         #endregion
     }
